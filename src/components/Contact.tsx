@@ -14,14 +14,6 @@ const Contact = () => {
         });
     };
 
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-        // For now, just log the form data
-        console.log('Form submitted:', formData);
-        alert('Thanks for your message! I\'ll get back to you soon.');
-        setFormData({ name: '', email: '', message: '' });
-    };
-
     return (
         <section id="contact" className="section-padding bg-white relative border-t border-gray-200">
             <div className="container-max">
@@ -40,7 +32,7 @@ const Contact = () => {
                     {/* Contact Form */}
                     <div className="bg-white rounded-lg shadow-lg p-8">
                         <h3 className="text-2xl font-bold text-gray-900 mb-6">Send me a message</h3>
-                        <form onSubmit={handleSubmit} className="space-y-6">
+                        <form action="https://formspree.io/f/mdkzylky" method="POST" className="space-y-6">
                             <div>
                                 <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
                                     Full Name
