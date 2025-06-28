@@ -1,10 +1,15 @@
 const About = () => {
     return (
-        <section id="about" className="section-padding bg-white">
+        <section id="about" className="section-padding bg-white relative border-t border-gray-100">
             <div className="container-max">
-                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-12">
-                    About Me
-                </h2>
+                {/* Section Header */}
+                <div className="text-center mb-16">
+                    <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                        About Me
+                    </h2>
+                    <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto"></div>
+                </div>
+                
                 <div className="grid md:grid-cols-2 gap-12 items-center">
                     <div>
                         <p className="text-lg text-gray-600 mb-6">
@@ -18,38 +23,45 @@ const About = () => {
                         </p>
                     </div>
                     <div>
-                        <h3 className="text-2xl font-bold text-gray-900 mb-4">Skills & Technologies</h3>
-
-                        <div className="mb-8">
-                            <h4 className="text-lg font-semibold text-gray-700 mb-4">Frontend</h4>
-                            <div className="flex flex-wrap gap-3">
-                                <span className="skill-badge">React</span>
-                                <span className="skill-badge">Typescript</span>
-                                <span className="skill-badge">Javascript</span>
-                                <span className="skill-badge">HTML 5</span>
-                                <span className="skill-badge">CSS 3</span> 
-                                <span className="skill-badge">Tailwind CSS</span>
+                        <div className="bg-gray-50 rounded-lg p-8">
+                            {/* Profile Image Placeholder */}
+                            <div className="w-48 h-48 bg-gradient-to-br from-blue-100 to-blue-200 rounded-lg mx-auto mb-8 flex items-center justify-center">
+                                <svg className="w-24 h-24 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                                </svg>
                             </div>
-                        </div>
-
-                        <div className="mb-8">
-                            <h4 className="text-lg font-semibold text-gray-700 mb-4">Backend & Database</h4>
-                            <div className="flex flex-wrap gap-3">
-                                <span className="skill-badge">Node.js</span>
-                                <span className="skill-badge">Express</span>
-                                <span className="skill-badge">MongoDB</span>
-                                <span className="skill-badge">MySQL</span>
+                            
+                            {/* Skills Summary */}
+                            <h3 className="text-xl font-bold text-gray-900 mb-4 text-center">Core Skills</h3>
+                            <div className="space-y-3">
+                                <div className="flex items-center space-x-3">
+                                    <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
+                                    <span className="text-gray-700">Full-Stack Development</span>
+                                </div>
+                                <div className="flex items-center space-x-3">
+                                    <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                                    <span className="text-gray-700">React & TypeScript</span>
+                                </div>
+                                <div className="flex items-center space-x-3">
+                                    <div className="w-3 h-3 bg-purple-500 rounded-full"></div>
+                                    <span className="text-gray-700">Project Management</span>
+                                </div>
+                                <div className="flex items-center space-x-3">
+                                    <div className="w-3 h-3 bg-orange-500 rounded-full"></div>
+                                    <span className="text-gray-700">Client Communication</span>
+                                </div>
+                                <div className="flex items-center space-x-3">
+                                    <div className="w-3 h-3 bg-red-500 rounded-full"></div>
+                                    <span className="text-gray-700">Problem Solving</span>
+                                </div>
                             </div>
-                        </div>
-
-                        <div className="mb-8">
-                            <h4 className="text-lg font-semibold text-gray-700 mb-4">Tools & Other</h4>
-                            <div className="flex flex-wrap gap-3">
-                                <span className="skill-badge">Git</span>
-                                <span className="skill-badge">GitHub</span>
-                                <span className="skill-badge">VS Code</span>
-                                <span className="skill-badge">Vite</span>
-                                <span className="skill-badge">Responsive Design</span>
+                            
+                            {/* Quick Stats */}
+                            <div className="mt-8 pt-6 border-t border-gray-200">
+                                <div className="text-center">
+                                    <p className="text-2xl font-bold text-blue-600">2024</p>
+                                    <p className="text-sm text-gray-600">Started Web Development</p>
+                                </div>
                             </div>
                         </div>
                     </div>

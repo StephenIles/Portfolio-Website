@@ -1,14 +1,18 @@
 const Projects = () => {
     return (
-        <section id="projects" className="section-padding bg-gray-50">
+        <section id="projects" className="section-padding bg-gray-50 relative border-t border-gray-200">
             <div className="container-max">
-                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-4">
-                    My Projects
-                </h2>
-                <p className="text-lg text-gray-600 text-center mb-12 max-w-3xl mx-auto">
-                    Here are some of the projects I've worked on, showcasing my skills in web development 
-                    and my ability to create solutions that meet client needs.
-                </p>
+                {/* Section Header */}
+                <div className="text-center mb-16">
+                    <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                        My Projects
+                    </h2>
+                    <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mb-6"></div>
+                    <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+                        Here are some of the projects I've worked on, showcasing my skills in web development 
+                        and my ability to create solutions that meet client needs.
+                    </p>
+                </div>
                 
                 {/* Project grid will go here */}
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">

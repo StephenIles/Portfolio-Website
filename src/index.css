@@ -34,22 +34,22 @@ html {
 /* Custom components */
 @layer components {
   .btn-primary {
-    @apply bg-primary-600 hover:bg-primary-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200;
+    @apply bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl;
   }
   
   .btn-secondary {
-    @apply bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-2 px-4 rounded-lg transition-colors duration-200;
+    @apply bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-3 px-6 rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg;
   }
   
   .section-padding {
-    @apply py-16 px-4 md:px-8 lg:px-16;
+    @apply py-20 px-4 md:px-8 lg:px-16;
   }
   
   .container-max {
     @apply max-w-6xl mx-auto;
   }
-
-  .skill-badge {
-  @apply px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-medium transition-all duration-300 hover:bg-blue-200 hover:scale-105 hover:shadow-md cursor-default;
-}
+  
+  .section-divider {
+    @apply w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto;
+  }
 }

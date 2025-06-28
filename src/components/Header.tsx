@@ -17,10 +17,7 @@ const Header = () => {
           </a>
           <a href="#contact" className="text-gray-700 hover:text-gray-900 transition-colors">
             Contact  
-          </a> 
-          <button className="bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800 transition-colors">
-            View Projects
-          </button> 
+          </a>   
         </nav>
       </div>
     </header>
