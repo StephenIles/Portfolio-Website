@@ -23,18 +23,26 @@ const Contact = () => {
         setSubmitStatus('idle');
 
         try {
+            // Create FormData object for proper form submission
+            const formDataObj = new FormData();
+            formDataObj.append('name', formData.name);
+            formDataObj.append('email', formData.email);
+            formDataObj.append('message', formData.message);
+
             const response = await fetch('https://formspree.io/f/mdkzylky', {
                 method: 'POST',
+                body: formDataObj,
                 headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(formData),
+                    'Accept': 'application/json'
+                }
             });
 
             if (response.ok) {
                 setSubmitStatus('success');
                 setFormData({ name: '', email: '', message: '' });
             } else {
+                const result = await response.json();
+                console.error('Formspree error:', result);
                 setSubmitStatus('error');
             }
         } catch (error) {
