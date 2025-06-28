@@ -1,37 +1,21 @@
 import { useState } from 'react';
 
 const Contact = () => {
-    const [formData, setFormData] = useState({
-        name: '',
-        email: '',
-        message: ''
-    });
-    
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        setFormData({
-            ...formData,
-            [e.target.name]: e.target.value
-        });
-    };
-
-    const handleSubmit = async (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setIsSubmitting(true);
         setSubmitStatus('idle');
 
-        try {
-            // Create FormData object for proper form submission
-            const formDataObj = new FormData();
-            formDataObj.append('name', formData.name);
-            formDataObj.append('email', formData.email);
-            formDataObj.append('message', formData.message);
+        const form = e.currentTarget;
+        const formData = new FormData(form);
 
+        try {
             const response = await fetch('https://formspree.io/f/mdkzylky', {
                 method: 'POST',
-                body: formDataObj,
+                body: formData,
                 headers: {
                     'Accept': 'application/json'
                 }
@@ -39,7 +23,7 @@ const Contact = () => {
 
             if (response.ok) {
                 setSubmitStatus('success');
-                setFormData({ name: '', email: '', message: '' });
+                form.reset();
             } else {
                 const result = await response.json();
                 console.error('Formspree error:', result);
@@ -96,7 +80,7 @@ const Contact = () => {
                             </div>
                         )}
 
-                        <form onSubmit={handleSubmit} className="space-y-6">
+                        <form onSubmit={handleSubmit} className="space-y-6" action="https://formspree.io/f/mdkzylky" method="POST">
                             <div>
                                 <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
                                     Full Name
@@ -105,8 +89,6 @@ const Contact = () => {
                                     type="text"
                                     id="name"
                                     name="name"
-                                    value={formData.name}
-                                    onChange={handleChange}
                                     required
                                     disabled={isSubmitting}
                                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors disabled:bg-gray-100 disabled:cursor-not-allowed"
@@ -121,8 +103,6 @@ const Contact = () => {
                                     type="email"
                                     id="email"
                                     name="email"
-                                    value={formData.email}
-                                    onChange={handleChange}
                                     required
                                     disabled={isSubmitting}
                                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors disabled:bg-gray-100 disabled:cursor-not-allowed"
@@ -136,8 +116,6 @@ const Contact = () => {
                                 <textarea
                                     id="message"
                                     name="message"
-                                    value={formData.message}
-                                    onChange={handleChange}
                                     required
                                     rows={5}
                                     disabled={isSubmitting}
